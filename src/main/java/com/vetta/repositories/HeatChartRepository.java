@@ -2,8 +2,8 @@ package com.vetta.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.vetta.controller.HeatChartController;
+import com.vetta.entities.HeatChart;
 
-public interface HeatChartRepository extends JpaRepository<HeatChartController, Long>{
+public interface HeatChartRepository extends JpaRepository<HeatChart, Long>{
 
 }
