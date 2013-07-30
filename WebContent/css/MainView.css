@@ -1,1 +1,28 @@
 @CHARSET "ISO-8859-1";
+
+.MainView{
+	/*border: solid 1px red;*/
+	position: relative;
+	overflow: hidden;
+	margin-top: 100px;
+}
+
+.MainView div{
+	float: left;
+}
+
+.MainView-MenuContainer{
+	width: 350px;
+	margin-right: 30px;
+	overflow: hidden;
+	position: relative;
+	/*border: solid 1px aqua;*/
+}
+
+.MainView-ChartContainer{
+	text-align: center;
+	width: 600px;
+	overflow: hidden;
+	position: relative;
+	/*border: solid 1px aqua;*/
+}

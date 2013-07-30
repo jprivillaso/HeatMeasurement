@@ -1,5 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+body{
+	background: #F9F6E1;
+}
+
 #pageWrapper{
 	margin: 0px auto;
 	text-align: center;

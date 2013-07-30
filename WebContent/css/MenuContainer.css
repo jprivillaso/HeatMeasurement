@@ -1,1 +1,26 @@
 @CHARSET "ISO-8859-1";
+
+.MenuContainer {
+	/*border: solid 1px blue;*/
+	position: relative;
+	overflow: hidden;
+	background: #ECE5C7;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#chartType div {
+	width: 100%;
+	height: 60px;
+	/*border: solid 1px black;*/
+}
+
+#chartType div:HOVER{
+	background-color: #D5CDA9;
+	cursor: pointer;	
+}
+
+#chartType div p {
+	margin-top: 10px;
+}
