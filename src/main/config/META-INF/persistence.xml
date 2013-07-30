@@ -1,1 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="persUnit" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<!-- Database properties -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/heatmeasurement"/>
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="" />
+			
+			<!-- The dialect refers to the database that you are using -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<!-- True if you want to print in the console the SQL that Hibernate is using -->
+			<property name="hibernate.show_sql" value="true" />
+			<!-- Here you can find the possible values for hibernate.hbm2ddl http://stackoverflow.com/questions/438146/hibernate-hbm2ddl-auto-possible-values-and-what-they-do -->
+			<property name="hibernate.hbm2ddl.auto" value="create-update" /> 
+		</properties>
+	</persistence-unit>
+</persistence>
