@@ -9,6 +9,7 @@ brite.viewDefaultConfig.loadCss = true;
  */
 $(document).ready(function() {
 	brite.display("MainView", "#pageWrapper");
+	//ajaxCall('graphics/chart/random');
 });
 
 /**
@@ -25,3 +26,16 @@ function render(templateName, data) {
 	}
 	return tmpl(data);
 }
+
+var ajaxCall = function(url){
+	$.ajax({
+		type : 'GET',
+		url : url,
+		success : function(result) {
+			console.log(result);
+		},
+		error : function() {
+			console.log('ERROR');
+		}
+	});
+};

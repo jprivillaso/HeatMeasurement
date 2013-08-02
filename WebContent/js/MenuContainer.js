@@ -8,10 +8,6 @@
 		}, 
 		
 		events: {
-			'click; .displayChartBtn':function(){
-				console.log('button pressed');
-			},
-			
 			'click; #type-line': function(){
 				this.$el.trigger("DO_SELECT_SHOW_CHART", 'spline');
 			},

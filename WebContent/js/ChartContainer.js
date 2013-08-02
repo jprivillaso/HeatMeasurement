@@ -1,20 +1,49 @@
 (function(){
 	
-	var displaySplineChart = function(){
+	var categories = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	
+	var api = function(url, resultHandlerFn){
+		response = [];
+		$.ajax({
+			type : 'GET',
+			url : url,
+			success : function(result) {
+				resultHandlerFn(result);
+			},
+			error : function() {
+				console.log('ERROR');
+			}
+		});
+	};
+	
+	var displaySplineChart = function(dataToDisplay){
+		var data = [];
+		
+		for(var i in dataToDisplay){
+			data.push(dataToDisplay[i].temperature);
+		}
+		
+		console.log(dataToDisplay);
 		$('#ChartContainer-Chart').highcharts({
             chart: {
-                type: 'spline'
+                type: 'spline',                
             },
+            
+            credits: {
+            	enabled: false
+            },
+                        
             title: {
-                text: 'Monthly Average Temperature'
+                text: 'Average Temperature',
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: categories,
             },
+
             yAxis: {
                 title: {
                     text: 'Temperature'
@@ -36,7 +65,7 @@
                         lineColor: '#666666',
                         lineWidth: 1
                     }
-                }
+                }                
             },
             series: [{
                 name: 'Tokyo',
@@ -51,7 +80,7 @@
                 }, 23.3, 18.3, 13.9, 9.6]
     
             }, {
-                name: 'London',
+            	name: 'London',
                 marker: {
                     symbol: 'diamond'
                 },
@@ -60,7 +89,13 @@
                     marker: {
                         symbol: 'url(http://www.highcharts.com/demo/gfx/snow.png)'
                     }
-                }, 9.2, 5.7, 8.5, 11.9, 15.2, 2.0, 16.6, 14.2, 10.3, 5, 4.8]
+                }, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]},
+            {
+            	name: 'Colombia',
+            	marker:{
+            		symbol: 'circle'
+            	},
+            	data: data
             }]
         });
 	};
@@ -73,7 +108,6 @@
                 marginRight: 10,
                 events: {
                     load: function() {
-    
                         // set up the updating of the chart each second
                         var series = this.series[0];
                         setInterval(function() {
@@ -118,9 +152,9 @@
                 name: 'Random data',
                 data: (function() {
                     // generate an array of random data
-                    var data = [],
-                        time = (new Date()).getTime(), i;
-    
+                    var data = [];
+                    var time = (new Date()).getTime(), i;
+                                    
                     for (i = -19; i <= 0; i++) {
                         data.push({
                             x: time + i * 1000,
@@ -143,7 +177,7 @@
 		
 		events: {
 			'click; .showTableBtn':function(event){
-				this.$el.trigger('DO_SELECT_SHOW_CHART');
+				this.$el.trigger('DO_SELECT_SHOW_CHART', 'spline');
 			},
 		
 			'click; .hideTableBtn':function(event){
@@ -155,7 +189,7 @@
 			'DO_SELECT_SHOW_CHART': function(event, type){
 				switch(type){
 					case 'spline' :
-						displaySplineChart();
+						api('graphics/chart/retreiveTemp', displaySplineChart);
 						break;
 					case 'realTime' :
 						displayRealTimeChart();

@@ -19,6 +19,11 @@
 	text-align: center;
 }
 
+#ChartContainer-Chart{
+	min-width: 450px; 
+	height: 400px; 
+}
+
 #btnWrapper{
 	width: 100%;
 	margin-bottom: 50px;
@@ -31,5 +36,5 @@
 }
 
 .ChartContainer-Wrapper{
-	margin-left: 100px;
+	margin-left: 80px;
 }
