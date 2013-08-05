@@ -38,3 +38,14 @@
 .ChartContainer-Wrapper{
 	margin-left: 80px;
 }
+
+.showFilters{
+	margin-left: 200px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+#dateFilters{
+	display: none;
+}
