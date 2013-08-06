@@ -114,10 +114,6 @@
 				this.$el.trigger('DO_SELECT_SHOW_CHART', 'spline');
 			},
 		
-			'click; .hideTableBtn':function(event){
-				console.log('about to hide the table');			
-			},
-			
 			'change; .filterSelector' : function(event){
 				var filter = $('.filterSelector').val();
 								
@@ -143,10 +139,20 @@
 			'DO_SELECT_SHOW_CHART': function(event, type){
 				switch(type){
 					case 'spline' :
+						//$('.ChartContainer-Wrapper').fadeIn('slow');
+						//$('.ChartContainer-ZoomableChart').fadeOut('slow');
+						$('.ChartContainer-Wrapper').fadeIn(0);
+						console.log('display table');
 						ajaxCall('graphics/chart/retreiveTemp', displaySplineChart);
 						break;
 					case 'realTime' :
 						//displayRealTimeChart();
+						break;
+					case 'zoomable':
+						//$('.ChartContainer-ZoomableChart').fadeIn('slow');
+						//$('.ChartContainer-Wrapper').fadeOut('slow');
+						var view = this;
+						brite.display("ZoomableChart", view.$el.find(".ChartContainer-ZoomableChart"));
 						break;
 					default:
 						break;

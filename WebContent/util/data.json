@@ -1,0 +1,24 @@
+{
+    "name" : "Europe",
+    "value" : 5,
+    "children" : [
+        {"name" : "Barcelona", "value" : 120 }
+            ]
+        },
+        {
+            "name" : "Real Madrid",
+            "value" : 75,
+            "children": [
+                {"name":"Ronaldo","value":25},
+                {"name":"Marcelo","value":30}
+            ]
+        },
+        {
+            "name" : "Bayern Munich",
+            "value" : 75,
+            "children": [
+                {"name":"Gotze","value":25}
+            ]
+        }
+    ]
+}

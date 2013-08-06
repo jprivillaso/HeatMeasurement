@@ -14,6 +14,10 @@
 			
 			'click; #type-realTime': function(){
 				this.$el.trigger("DO_SELECT_SHOW_CHART", 'realTime');
+			},
+			
+			'click; #type-zoomableTree' : function(){
+				this.$el.trigger("DO_SELECT_SHOW_CHART", 'zoomable');
 			}
 		}
 	});

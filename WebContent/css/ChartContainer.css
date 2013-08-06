@@ -20,8 +20,13 @@
 }
 
 #ChartContainer-Chart{
-	min-width: 450px; 
+	width: 450px; 
 	height: 400px; 
+}
+
+.ChartContainer-ZoomableChart{
+	/*margin-left: 200px;*/
+	margin: 0px auto;
 }
 
 #btnWrapper{
@@ -31,19 +36,22 @@
 }
 
 #ChartContainer-Chart{
-	left: 100px;
-	/*border: solid 1px red;*/
+	/*left: 100px;
+	border: solid 1px red;*/
 }
 
 .ChartContainer-Wrapper{
 	margin-left: 80px;
+	display: none;
+}
+
+.ChartContainer-ZoomableChart{
+	margin-left: 50px;
 }
 
 .showFilters{
-	margin-left: 200px;
-	text-align: center;
-	position: relative;
-	overflow: hidden;
+	margin-left: 100px;
+	display: none;
 }
 
 #dateFilters{

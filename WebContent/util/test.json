@@ -1,0 +1,29 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "display",
+   "children": [
+    {"name": "DirtySprite","size": 8833},
+    {"name": "LineSprite", "size": 1732},
+    {"name": "RectSprite", "size": 3623}
+   ]
+  },
+  {
+   "name": "physics",
+   "children": [
+    {"name": "DragForce", "size": 1082},
+    {"name": "GravityForce", "size": 1336},
+    {"name": "IForce", "size": 319}    
+   ]
+  },
+  {
+   "name": "scale",
+   "children": [
+    {"name": "IScaleMap", "size": 2105},
+    {"name": "LinearScale", "size": 1316},
+    {"name": "LogScale", "size": 3151}
+   ]
+  }
+ ]
+}
