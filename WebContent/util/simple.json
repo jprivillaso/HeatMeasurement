@@ -1,0 +1,14 @@
+{
+    "name" : "Europe",
+    "value" : 5,
+    "children" : [
+        {
+            "name" : "Barcelona", 
+            "value" : 120,
+            "children": [
+                {"name":"Ron","value":25},
+                {"name":"Mar","value":30}
+            ] 
+        }         
+    ]
+}

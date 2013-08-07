@@ -7,6 +7,10 @@ body {
 	font-family: "Helvetica Neue", Helvetica;
 }
 
+h1{
+	font-family: sans-serif;
+}
+
 #header {
 	position: absolute;
 	top: 0;

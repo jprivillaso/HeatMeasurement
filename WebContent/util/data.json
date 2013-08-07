@@ -4,7 +4,11 @@
     "children" : [
         {
             "name" : "Barcelona", 
-            "value" : 120 
+            "value" : 120,
+            "children": [
+                {"name":"Ron","value":25},
+                {"name":"Mar","value":30}
+            ] 
         },         
         {
             "name" : "Real Madrid",

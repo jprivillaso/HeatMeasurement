@@ -1,57 +1,86 @@
 {
- "name": "flare",
+ "name": "",
  "children": [
   {
-   "name": "display",
+   "name": "America",
    "children": [
     {
-        "name": "DirtySprite",
+        "name": "Colombia",
         "size": 1000,
         "children":[
             {
-                "name": "test1",
+                "name": "Antioquia",
                 "size" : 1500,
                 "children":[
-                	{
-                		"name": "Hello1",
+                    {
+                    	"name": "Rionegro",
                 		"size": 2000
                 	},
                 	{
-                		"name": "Hello2",
+                		"name": "Medellin",
                 		"size": 2000
                 	}
                 ]
             },
             {
-                "name": "test2",
+                "name": "Cundinamarca",
                 "size" : 3569
             }         
         ]
     },
     {
-        "name": "LineSprite", 
+        "name": "Brasil", 
         "size": 1732
     },
     {
-        "name": "RectSprite", 
+        "name": "Ecuador", 
         "size": 3623
     }
    ]
   },
   {
-   "name": "physics",
+   "name": "Europe",
    "children": [
-    {"name": "DragForce", "size": 1082},
-    {"name": "GravityForce", "size": 1336},
-    {"name": "IForce", "size": 319}    
+    {
+        "name": "France", 
+        "size": 1082,
+        "children": [
+            {
+                "name": "Paris",
+                "size" : 800
+            }    
+        ]
+    },
+    {
+        "name": "Germany",
+        "size": 1336,
+        "children": [
+            {
+                "name": "Munchen",
+                "size" : 800
+            }    
+        ]
+    },
+    {
+        "name": "Hungary", 
+        "size": 319
+    }    
    ]
   },
   {
-   "name": "scale",
+   "name": "Asia",
    "children": [
-    {"name": "IScaleMap", "size": 2105},
-    {"name": "LinearScale", "size": 1316},
-    {"name": "LogScale", "size": 3151}
+    {
+        "name": "India",
+        "size": 2105,
+        "children": [
+            {
+                "name": "New Dheli",
+                "size" : 800
+            }    
+        ]},
+    {"name": "China", "size": 1316},
+    {"name": "Japan", "size": 3151}
    ]
   }
  ]
