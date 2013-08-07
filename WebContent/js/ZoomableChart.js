@@ -18,7 +18,6 @@
 
 			cells.append("rect")
 				.attr("x", function(d) {return d.x;})
-				.attr("id-rect", Math.random())
 				.attr("y", function(d) {return d.y;})
 				.attr("width", function(d) {return d.dx;})
 				.attr("height", function(d) {return d.dy;})

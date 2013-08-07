@@ -4,9 +4,38 @@
   {
    "name": "display",
    "children": [
-    {"name": "DirtySprite","size": 8833},
-    {"name": "LineSprite", "size": 1732},
-    {"name": "RectSprite", "size": 3623}
+    {
+        "name": "DirtySprite",
+        "size": 1000,
+        "children":[
+            {
+                "name": "test1",
+                "size" : 1500,
+                "children":[
+                	{
+                		"name": "Hello1",
+                		"size": 2000
+                	},
+                	{
+                		"name": "Hello2",
+                		"size": 2000
+                	}
+                ]
+            },
+            {
+                "name": "test2",
+                "size" : 3569
+            }         
+        ]
+    },
+    {
+        "name": "LineSprite", 
+        "size": 1732
+    },
+    {
+        "name": "RectSprite", 
+        "size": 3623
+    }
    ]
   },
   {

@@ -2,9 +2,10 @@
     "name" : "Europe",
     "value" : 5,
     "children" : [
-        {"name" : "Barcelona", "value" : 120 }
-            ]
-        },
+        {
+            "name" : "Barcelona", 
+            "value" : 120 
+        },         
         {
             "name" : "Real Madrid",
             "value" : 75,
