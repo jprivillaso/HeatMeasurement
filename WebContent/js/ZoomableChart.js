@@ -20,6 +20,9 @@
 	                return d.size;
 	            });
 	    
+	    console.log("treemap");
+	    console.log(treemap);
+	    
 	    var chart = d3.select(".ZoomableChart").append("div")
 	            .append("svg:svg")
 	            .attr("width", chartWidth)
@@ -36,7 +39,9 @@
 	        var parents = nodes.filter(function(d) {
 	            return d.children;
 	        });
-
+	        
+	        console.log(parents);
+	        
 	        // create parent cells
 	        var parentCells = chart.selectAll("g.cell.parent")
 	                .data(parents, function(d) {

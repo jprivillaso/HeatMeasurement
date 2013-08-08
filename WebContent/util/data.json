@@ -1,5 +1,5 @@
 {
-    "name" : "Europe",
+    "name" : "Teams",
     "value" : 5,
     "children" : [
         {
@@ -7,7 +7,9 @@
             "value" : 120,
             "children": [
                 {"name":"Ron","value":25},
-                {"name":"Mar","value":30}
+                {"name":"Mar","value":30},
+                {"name":"Ter","value":30},
+                {"name":"Terita","value":30}
             ] 
         },         
         {
@@ -21,9 +23,7 @@
         {
             "name" : "Bayern Munich",
             "value" : 75,
-            "children": [
-                {"name":"Gotze","value":25}
-            ]
+            "children": []
         }
     ]
 }
