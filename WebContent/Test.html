@@ -3,10 +3,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Treemap 29 - Neat Zoom Effect</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/Test.css">
     <link rel="stylesheet" type="text/xss" href="libraries/colorBrewer/colorbrewer.css"/>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="libraries/colorBrewer/libcolorbrewer.js" charset="utf-8"></script>
+=======
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/Test.css">
+    <style type="text/css">
+    	
+    </style>
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 </head>
 <body>
 <div id="body"></div>
@@ -34,6 +42,7 @@
     
     var chart = d3.select("#body").append("div")
             .append("svg:svg")
+<<<<<<< HEAD
             .attr("class", "Blues")
             .attr("width", chartWidth)
             .attr("height", chartHeight)
@@ -44,6 +53,12 @@
         return parseInt((d.value/3623) * 8 , 10);
     }
     
+=======
+            .attr("width", chartWidth)
+            .attr("height", chartHeight)
+            .append("svg:g");
+
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
     d3.json("util/test.json", function(data) {
         node = root = data;
         var nodes = treemap.nodes(root);
@@ -112,6 +127,7 @@
                 .data(children, function(d) {
                     return "c-" + d.name;
                 });
+<<<<<<< HEAD
                
         // enter transition
         var childEnterTransition = childrenCells.enter()
@@ -120,14 +136,24 @@
                 	return "q" + randomNumber(0,8,d) + "-9 cell child";
                 })
                 //.attr("class", "cell child")
+=======
+        // enter transition
+        var childEnterTransition = childrenCells.enter()
+                .append("g")
+                .attr("class", "cell child")
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
                 .on("click", function(d) {
                     zoom(node === d.parent ? root : d.parent);
                 });
         childEnterTransition.append("rect")
                 .classed("background", true)
                 .style("fill", function(d) {
+<<<<<<< HEAD
                 	return "q" + randomNumber(0,8,d) + "-9 cell child";
                 	//return color(d.parent.name);
+=======
+                    return color(d.parent.name);
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
                 });
         childEnterTransition.append('text')
                 .attr("class", "label")
@@ -161,8 +187,12 @@
                     return (d.dy - 1);
                 })
                 .style("fill", function(d) {
+<<<<<<< HEAD
                 	return "q" + randomNumber(0,8,d) + "-9 cell child";
                 	//return color(d.parent.name);
+=======
+                    return color(d.parent.name);
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
                 });
         childUpdateTransition.select(".label")
                 .attr('x', function(d) {
@@ -186,6 +216,16 @@
         childrenCells.exit()
                 .remove();
 
+<<<<<<< HEAD
+=======
+        d3.select("select").on("change", function() {
+            console.log("select zoom(node)");
+            treemap.value(this.value == "size" ? size : count)
+                    .nodes(root);
+            zoom(node);
+        });
+
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
         zoom(node);
     });
 
@@ -208,7 +248,11 @@
         return (ky * d.dy) / headerHeight;
     }
 
+<<<<<<< HEAD
     /*function getRGBComponents (color) {
+=======
+    function getRGBComponents (color) {
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
         var r = color.substring(1, 3);
         var g = color.substring(3, 5);
         var b = color.substring(5, 7);
@@ -218,14 +262,22 @@
             B: parseInt(b, 16)
         };
     }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 
     function idealTextColor (bgColor) {
         var nThreshold = 105;
         var components = getRGBComponents(bgColor);
         var bgDelta = (components.R * 0.299) + (components.G * 0.587) + (components.B * 0.114);
         return ((255 - bgDelta) < nThreshold) ? "#000000" : "#ffffff";
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 
 
     function zoom(d) {
@@ -262,8 +314,12 @@
                             .select(".label")
                             .style("display", "")
                             .style("fill", function(d) {
+<<<<<<< HEAD
                                 return "white";
                             	//return idealTextColor(color(d.parent.name));
+=======
+                                return idealTextColor(color(d.parent.name));
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
                             });
                     }
                 });
@@ -296,8 +352,12 @@
                     return d.children ? headerHeight : Math.max(0.01, (ky * d.dy - 1));
                 })
                 .style("fill", function(d) {
+<<<<<<< HEAD
                 	//return d.children ? headerColor : "red";
                     return d.children ? headerColor : "q" + randomNumber(0,8,d) + "-9 cell child";
+=======
+                    return d.children ? headerColor : color(d.parent.name);
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
                 });
 
         node = d;

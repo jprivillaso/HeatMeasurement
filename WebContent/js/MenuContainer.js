@@ -18,6 +18,7 @@
 			
 			'click; #type-zoomableTree' : function(){
 				this.$el.trigger("DO_SELECT_SHOW_CHART", 'zoomable');
+<<<<<<< HEAD
 			},
 			
 			'click; #type-zoomable2' : function(){
@@ -26,6 +27,8 @@
 			
 			'click; #type-zoomable3' : function(){
 				this.$el.trigger("DO_SELECT_SHOW_CHART", 'zoomable3');
+=======
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 			}
 		}
 	});

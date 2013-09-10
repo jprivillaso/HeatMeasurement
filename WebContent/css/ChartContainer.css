@@ -26,6 +26,7 @@
 	height: 400px; 
 }
 
+<<<<<<< HEAD
 .ChartContainer-ZoomableChart, .ChartContainer-ZoomableChart2, .ChartContainer-ZoomableChart3{
 	/*margin-left: 200px;*/
 	display: none;
@@ -34,6 +35,11 @@
 	text-align: center;
 	width: 100%;
 	/*border:solid 1px green;*/
+=======
+.ChartContainer-ZoomableChart{
+	/*margin-left: 200px;*/
+	margin: 0px auto;
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 }
 
 #btnWrapper{
@@ -52,6 +58,13 @@
 	display: none;
 }
 
+<<<<<<< HEAD
+=======
+.ChartContainer-ZoomableChart{
+	margin-left: 50px;
+}
+
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 .showFilters{
 	margin-left: 100px;
 	display: none;

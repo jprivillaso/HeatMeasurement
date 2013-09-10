@@ -133,6 +133,7 @@
 					ajaxCall('graphics/filters/temp', displaySplineChart, data);
 					break;
 				}
+<<<<<<< HEAD
 			},
 			
 			'click; #updateChartSizeBtn' : function() {		
@@ -141,6 +142,8 @@
 			
 			'click; #updateChartColorBtn' : function() {		
 				//ZoomableTreemap.updateChartColor("Purples");
+=======
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 			}
 		},
 		
@@ -148,8 +151,14 @@
 			'DO_SELECT_SHOW_CHART': function(event, type){
 				switch(type){
 					case 'spline' :
+<<<<<<< HEAD
 						$('.ChartContainer-ZoomableChart').fadeOut(0);
 						$('.ChartContainer-Wrapper').fadeIn('slow');
+=======
+						//$('.ChartContainer-Wrapper').fadeIn('slow');
+						//$('.ChartContainer-ZoomableChart').fadeOut('slow');
+						$('.ChartContainer-Wrapper').fadeIn(0);
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 						console.log('display table');
 						ajaxCall('graphics/chart/retreiveTemp', displaySplineChart);
 						break;
@@ -157,6 +166,7 @@
 						//displayRealTimeChart();
 						break;
 					case 'zoomable':
+<<<<<<< HEAD
 						$('.ChartContainer-Wrapper').fadeOut(0);
 						$('.ChartContainer-ZoomableChart').fadeIn('slow');
 						var $chartEl = '#chart';
@@ -207,6 +217,12 @@
 							var instancex = new Zoomable_Treemap();
 							instancex.init(options);
 						});
+=======
+						//$('.ChartContainer-ZoomableChart').fadeIn('slow');
+						//$('.ChartContainer-Wrapper').fadeOut('slow');
+						var view = this;
+						brite.display("ZoomableChart", view.$el.find(".ChartContainer-ZoomableChart"));
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 						break;
 					default:
 						break;

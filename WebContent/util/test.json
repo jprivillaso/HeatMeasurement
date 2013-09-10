@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "Cualquier cosa", 
     "value": 616816,
     "children": [
@@ -30,4 +31,91 @@
             "color": 35000
         }
     ]
+=======
+ "name": "Continents",
+ "children": [
+  {
+   "name": "America",
+   "children": [
+    {
+        "name": "Colombia",
+        "size": 1000,
+        "children":[
+            {
+                "name": "Antioquia",
+                "size" : 1500,
+                "children":[
+                    {
+                    	"name": "Rionegro",
+                		"size": 2000
+                	},
+                	{
+                		"name": "Medellin",
+                		"size": 2000
+                	}
+                ]
+            },
+            {
+                "name": "Cundinamarca",
+                "size" : 3569
+            }         
+        ]
+    },
+    {
+        "name": "Brasil", 
+        "size": 1732
+    },
+    {
+        "name": "Ecuador", 
+        "size": 3623
+    }
+   ]
+  },
+  {
+   "name": "Europe",
+   "children": [
+    {
+        "name": "France", 
+        "size": 1082,
+        "children": [
+            {
+                "name": "Paris",
+                "size" : 800
+            }    
+        ]
+    },
+    {
+        "name": "Germany",
+        "size": 1336,
+        "children": [
+            {
+                "name": "Munchen",
+                "size" : 800
+            }    
+        ]
+    },
+    {
+        "name": "Hungary", 
+        "size": 319
+    }    
+   ]
+  },
+  {
+   "name": "Asia",
+   "children": [
+    {
+        "name": "India",
+        "size": 2105,
+        "children": [
+            {
+                "name": "New Dheli",
+                "size" : 800
+            }    
+        ]},
+    {"name": "China", "size": 1316},
+    {"name": "Japan", "size": 3151}
+   ]
+  }
+ ]
+>>>>>>> f6e33e1a4d6c3bb9b6fd40c2c9610432dbf886bf
 }
