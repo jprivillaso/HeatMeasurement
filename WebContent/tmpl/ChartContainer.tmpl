@@ -1,15 +1,31 @@
 <script id="tmpl-ChartContainer" type="text/html">
 	<div class="ChartContainer">
-		<div class="ChartContainer-Header">
-			<h1>Heat Measurement</h1>
-		</div>
 		<div class="ChartContainer-Wrapper">
+			<h2>Spline Chart</h2>
 			<div id="ChartContainer-Chart"></div>
 		</div>
-		<div id="btnWrapper">
-			<button class="btn btn-success showTableBtn">ShowTable</button>
+		<h2>Zoomable Treemap</h2>
+		<div class="ChartContainer-ZoomableChart">
+			<div id="chart"></div>
+			<button id="updateChartSizeBtn" class="btn btn-success">Update Size</button>
+			<button id="updateChartColorBtn" class="btn btn-success">Change Color</button>
+		</div>
+		<div class="ChartContainer-ZoomableChart2">
+			<div id="chart2"></div>
+		</div>
+		<div class="ChartContainer-ZoomableChart3">
+			<div id="chart3"></div>
 		</div>
 		<div class="showFilters">
+			<h2>Filters</h2>
+			<select class="filterSelector">
+				<option val="date">Date</option>
+				<option val="temperature">Temperature</option>
+			</select>
+			<div id="dateFilters">
+				<input type="date" id="minDate" />
+				<input type="date" id="maxDate" /> 
+			</div>
 		</div>
 	</div>
 </script>

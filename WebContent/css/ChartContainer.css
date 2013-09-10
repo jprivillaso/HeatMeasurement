@@ -1,4 +1,5 @@
 @CHARSET "ISO-8859-1";
+@IMPORT url("ZoomableTreemap.css");
 
 .ChartContainer{
 	/*border: solid 1px green;*/
@@ -11,6 +12,7 @@
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	min-height: 500px;
+	margin-bottom: 30px;
 }
 
 .ChartContainer-Header{
@@ -20,8 +22,18 @@
 }
 
 #ChartContainer-Chart{
-	min-width: 450px; 
+	width: 450px; 
 	height: 400px; 
+}
+
+.ChartContainer-ZoomableChart, .ChartContainer-ZoomableChart2, .ChartContainer-ZoomableChart3{
+	/*margin-left: 200px;*/
+	display: none;
+	margin: 0px auto;
+	margin-top: 20px;
+	text-align: center;
+	width: 100%;
+	/*border:solid 1px green;*/
 }
 
 #btnWrapper{
@@ -31,10 +43,20 @@
 }
 
 #ChartContainer-Chart{
-	left: 100px;
-	/*border: solid 1px red;*/
+	/*left: 100px;
+	border: solid 1px red;*/
 }
 
 .ChartContainer-Wrapper{
 	margin-left: 80px;
+	display: none;
+}
+
+.showFilters{
+	margin-left: 100px;
+	display: none;
+}
+
+#dateFilters{
+	display: none;
 }

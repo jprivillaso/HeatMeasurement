@@ -1,12 +1,13 @@
-(function(){
+(function(){	
 	
 	var categories = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
 	                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	
-	var api = function(url, resultHandlerFn){
+	var ajaxCall = function(url, resultHandlerFn, data){
 		response = [];
 		$.ajax({
-			type : 'GET',
+			data: data,
+			type : 'POST',
 			url : url,
 			success : function(result) {
 				resultHandlerFn(result);
@@ -100,74 +101,8 @@
         });
 	};
 	
-	var displayRealTimeChart = function(){
-        $('#ChartContainer-Chart').highcharts({
-            chart: {
-                type: 'spline',
-                animation: Highcharts.svg, // don't animate in old IE
-                marginRight: 10,
-                events: {
-                    load: function() {
-                        // set up the updating of the chart each second
-                        var series = this.series[0];
-                        setInterval(function() {
-                            var x = (new Date()).getTime(), // current time
-                                y = Math.random();
-                            series.addPoint([x, y], true, true);
-                        }, 1000);
-                    }
-                }
-            },
-            title: {
-                text: 'Live random data'
-            },
-            xAxis: {
-                type: 'datetime',
-                tickPixelInterval: 150
-            },
-            yAxis: {
-                title: {
-                    text: 'Value'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
-                        Highcharts.numberFormat(this.y, 2);
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            exporting: {
-                enabled: false
-            },
-            series: [{
-                name: 'Random data',
-                data: (function() {
-                    // generate an array of random data
-                    var data = [];
-                    var time = (new Date()).getTime(), i;
-                                    
-                    for (i = -19; i <= 0; i++) {
-                        data.push({
-                            x: time + i * 1000,
-                            y: Math.random()
-                        });
-                    }
-                    return data;
-                })()
-            }]
-        });
-	};	
-	
 	brite.registerView("ChartContainer", {emptyParent : true}, {
+		
 		create: function(){
 			return render("tmpl-ChartContainer");
 		},
@@ -180,8 +115,32 @@
 				this.$el.trigger('DO_SELECT_SHOW_CHART', 'spline');
 			},
 		
-			'click; .hideTableBtn':function(event){
-				console.log('about to hide the table');			
+			'change; .filterSelector' : function(event){
+				var filter = $('.filterSelector').val();
+								
+				switch(filter){
+				case 'Date' :
+					$('#dateFilters').fadeOut('slow');
+					ajaxCall('graphics/filters/date', displaySplineChart);
+					break;
+				case 'Temperature':
+					$('#dateFilters').fadeIn('slow');
+					var data = {
+						'minDate' : $('#minDate').val(),
+						'maxDate' : $('#maxDate').val()
+					};
+					
+					ajaxCall('graphics/filters/temp', displaySplineChart, data);
+					break;
+				}
+			},
+			
+			'click; #updateChartSizeBtn' : function() {		
+				//this.$el.trigger('CHANGE_CHART_SIZE', 600 , 400);
+			},
+			
+			'click; #updateChartColorBtn' : function() {		
+				//ZoomableTreemap.updateChartColor("Purples");
 			}
 		},
 		
@@ -189,10 +148,65 @@
 			'DO_SELECT_SHOW_CHART': function(event, type){
 				switch(type){
 					case 'spline' :
-						api('graphics/chart/retreiveTemp', displaySplineChart);
+						$('.ChartContainer-ZoomableChart').fadeOut(0);
+						$('.ChartContainer-Wrapper').fadeIn('slow');
+						console.log('display table');
+						ajaxCall('graphics/chart/retreiveTemp', displaySplineChart);
 						break;
 					case 'realTime' :
-						displayRealTimeChart();
+						//displayRealTimeChart();
+						break;
+					case 'zoomable':
+						$('.ChartContainer-Wrapper').fadeOut(0);
+						$('.ChartContainer-ZoomableChart').fadeIn('slow');
+						var $chartEl = '#chart';
+						var chartElement = $($chartEl + ' svg g');
+						var ZoomableTreemap = null;
+						chartElement.length > 0 ? null 
+						: d3.json("util/test.json", function(root) {
+							var options = {
+								data: root,
+								$chartEl: $chartEl,
+								sizeProperty: 'value',
+								colorProperty: 'color', 
+								propertiesToShow: ["value", "color"],
+								colorPattern: 'YlOrRd',
+								width: 500, 
+								height: 400
+							};
+							ZoomableTreemap = new Zoomable_Treemap();
+							ZoomableTreemap.init(options);
+						});
+						$("#updateChartSizeBtn").on('click', function(){
+							ZoomableTreemap.updateChartSize(600, 400);
+						});
+						
+						$("#updateChartColorBtn").on('click', function(){
+							ZoomableTreemap.changeChartColor('YlGn');
+						});
+						
+						break;
+					case 'zoomable2': 
+						$('.ChartContainer-Wrapper').fadeOut(0);
+						$('.ChartContainer-ZoomableChart2').fadeIn('slow');
+						var $chartEl2 = '#chart2';
+						var chartElement2 = $($chartEl2 + ' svg g');
+						
+						chartElement2.length > 0 ? null
+						: d3.json("util/test2.json", function(root2) {
+							var options = {
+								data: root2,
+								$chartEl: $chartEl2,
+								sizeProperty: 'value',
+								colorProperty: 'color', 
+								propertiesToShow: ["value"],
+								colorPattern: 'YlOrRd',
+								width: 500, 
+								height: 400
+							};
+							var instancex = new Zoomable_Treemap();
+							instancex.init(options);
+						});
 						break;
 					default:
 						break;
@@ -201,3 +215,4 @@
 		}
 	});	
 })();
+
